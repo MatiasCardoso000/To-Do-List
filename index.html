@@ -8,8 +8,13 @@
   </head>
   <body>
     <main class="container">
-      <input type="text" id="add-todo" />
-      <button>Add</button>
+      <form class="add-todo-form" novalidate>
+        <input type="text" id="add-todo" autocomplete="off" required />
+        <button>Add</button>
+      </form>
+
+      <section class="todos-container"></section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

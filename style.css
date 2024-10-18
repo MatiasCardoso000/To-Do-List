@@ -5,7 +5,8 @@
 }
 
 body {
-  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 .container {
@@ -13,6 +14,12 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+}
+
+.add-todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input[type="text"],
@@ -45,4 +52,15 @@ button {
 
 button:hover {
   background-color: rgb(22, 180, 63);
+}
+
+.todos-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 22px;
+  height: 600px;
+  width: 800px;
+  box-shadow: 1px 1px 10px rgba(211, 140, 140, 0.4);
 }
