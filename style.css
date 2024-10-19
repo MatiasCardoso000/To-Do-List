@@ -7,6 +7,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
+  background-color: rgb(250, 229, 203);
 }
 
 .container {
@@ -29,9 +30,9 @@ button {
 
 input[type="text"] {
   width: 340px;
-  border: 1px solid rgb(29, 57, 63);
-  border-radius: 6px;
-  padding: 6px;
+  border: 1px solid rgb(224, 228, 229);
+  border-radius: 18px;
+  padding: 10px;
   font-size: 16px;
 }
 
@@ -41,10 +42,10 @@ input[type="text"]:focus {
 
 button {
   width: 200px;
-  background-color: rgb(25, 202, 72);
+  background-color: rgb(31, 224, 60);
   border: none;
   border-radius: 18px;
-  margin-top: 12px;
+  margin-top: 16px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.15s;
@@ -54,13 +55,28 @@ button:hover {
   background-color: rgb(22, 180, 63);
 }
 
+h3 {
+  margin-top: 22px;
+  font-size: 24px;
+}
+
 .todos-container {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
   padding: 12px;
   font-size: 22px;
-  height: 600px;
-  width: 800px;
-  box-shadow: 1px 1px 10px rgba(211, 140, 140, 0.4);
+  height: 540px;
+  width: 400px;
+  box-shadow: 1px 1px 10px rgba(146, 135, 135, 0.7);
+  background-color: rgb(215, 236, 254);
+}
+
+.todo-item {
+  margin-top: 8px;
+}
+
+.divisor {
+  width: 375px;
+  height: 1px;
+  background-color: lightgray;
 }

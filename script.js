@@ -6,9 +6,9 @@ let todo = "";
 let todos = [];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (todos.length === 15) return;
   checkIfInputIsEmpty();
 
-  console.log(todos);
   showTodoOnDisplay();
 });
 
@@ -19,11 +19,11 @@ input.addEventListener("input", ({ target }) => {
 
 const showTodoOnDisplay = () => {
   const div = document.createElement("div");
-  todos.map((todo, i) => {
-    div.textContent = `${i + 1} ${
-      todo.slice(0, 1).toUpperCase() + todo.slice(1)
-    }`;
+  const divisor = document.createElement("div");
+  todos.map((todo) => {
+    div.textContent = `${todo.slice(0, 1).toUpperCase() + todo.slice(1)}`;
     div.className = "todo-item";
+    divisor.className = "divisor";
     todosDisplay.append(div);
   });
 };
