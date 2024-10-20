@@ -40,29 +40,29 @@ input[type="text"]:focus {
   outline: none;
 }
 
-button {
+.add-btn {
   width: 200px;
   background-color: rgb(31, 224, 60);
   border: none;
   border-radius: 18px;
-  margin-top: 16px;
+  margin-top: 20px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.15s;
 }
 
-button:hover {
+.add-btn:hover {
   background-color: rgb(22, 180, 63);
 }
 
 h3 {
-  margin-top: 22px;
+  margin-top: 55px;
   font-size: 24px;
 }
 
 .todos-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 12px;
   font-size: 22px;
   height: 540px;
@@ -73,10 +73,31 @@ h3 {
 
 .todo-item {
   margin-top: 8px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.divisor {
-  width: 375px;
-  height: 1px;
-  background-color: lightgray;
+.delete-btn {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255, 144, 144);
+  position: absolute;
+  right: 60px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.455);
+  transition: box-shadow;
+}
+
+.delete-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+.delete-btn:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }

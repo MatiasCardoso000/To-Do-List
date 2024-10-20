@@ -6,9 +6,9 @@ let todo = "";
 let todos = [];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (todos.length === 15) return;
+  if (todos.length === 11) return;
+  if (todos.some((t) => t.title === todo)) return;
   checkIfInputIsEmpty();
-
   showTodoOnDisplay();
 });
 
@@ -19,9 +19,20 @@ input.addEventListener("input", ({ target }) => {
 
 const showTodoOnDisplay = () => {
   const div = document.createElement("div");
+  const deleteBtn = document.createElement("button");
+  const img = document.createElement("img");
+  const todoItem = document.createElement("p");
   const divisor = document.createElement("div");
-  todos.map((todo) => {
-    div.textContent = `${todo.slice(0, 1).toUpperCase() + todo.slice(1)}`;
+  todos.forEach((todo) => {
+    todoItem.textContent = `${
+      todo.title.slice(0, 1).toUpperCase() + todo.title.slice(1)
+    }`;
+    div.append(todoItem, deleteBtn);
+    img.setAttribute("src", "/icon/compartimiento.png");
+    deleteBtn.append(img);
+    deleteBtn.className = "delete-btn";
+    deleteBtn.addEventListener("click", deleteTodo(todo.id));
+    todoItem.className = "todo";
     div.className = "todo-item";
     divisor.className = "divisor";
     todosDisplay.append(div);
@@ -33,8 +44,15 @@ const checkIfInputIsEmpty = () => {
     input.setCustomValidity("Tiene que ingresar un todo");
     todos = [];
   } else {
-    input.setCustomValidity("");
-    todos.push(todo);
+    todos.push({ id: Date.now(), title: todo });
   }
   input.reportValidity();
+  input.value = "";
 };
+
+function deleteTodo(id) {
+  todos = todos.filter((todo) => todo.id !== todo.id);
+  showTodoOnDisplay();
+}
+
+//TODO: Crear botones para eliminar tareas de la lista y marcar cuando estan hechas.
