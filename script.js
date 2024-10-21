@@ -8,35 +8,49 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (todos.length === 11) return;
   if (todos.some((t) => t.title === todo)) return;
+
   checkIfInputIsEmpty();
   showTodoOnDisplay();
 });
 
-input.addEventListener("input", ({ target }) => {
-  const todoValue = target.value;
-  todo = todoValue;
-});
+input.addEventListener("input", ({ target }) => (todo = target.value));
 
 const showTodoOnDisplay = () => {
-  const div = document.createElement("div");
-  const deleteBtn = document.createElement("button");
-  const img = document.createElement("img");
-  const todoItem = document.createElement("p");
-  const divisor = document.createElement("div");
+  const { div, deleteBtn, checkTodo, img, todoItem, label } = createElements();
   todos.forEach((todo) => {
     todoItem.textContent = `${
       todo.title.slice(0, 1).toUpperCase() + todo.title.slice(1)
     }`;
-    div.append(todoItem, deleteBtn);
-    img.setAttribute("src", "/icon/compartimiento.png");
+    label.appendChild(checkTodo);
+    div.append(todoItem, label, deleteBtn);
+    img.setAttribute("src", "./icon/compartimiento.png");
     deleteBtn.append(img);
-    deleteBtn.className = "delete-btn";
     deleteBtn.addEventListener("click", deleteTodo(todo.id));
-    todoItem.className = "todo";
-    div.className = "todo-item";
-    divisor.className = "divisor";
     todosDisplay.append(div);
   });
+};
+
+const createElements = () => {
+  const div = document.createElement("div");
+  const deleteBtn = document.createElement("button");
+  const label = document.createElement("label");
+  const checkTodo = document.createElement("input");
+  const img = document.createElement("img");
+  const todoItem = document.createElement("p");
+  label.className = "check-todo";
+  deleteBtn.className = "delete-btn";
+  todoItem.className = "todo";
+  div.className = "todo-item";
+  checkTodo.type = "checkbox";
+
+  return {
+    div,
+    deleteBtn,
+    checkTodo,
+    img,
+    todoItem,
+    label,
+  };
 };
 
 const checkIfInputIsEmpty = () => {
@@ -50,9 +64,6 @@ const checkIfInputIsEmpty = () => {
   input.value = "";
 };
 
-function deleteTodo(id) {
-  todos = todos.filter((todo) => todo.id !== todo.id);
-  showTodoOnDisplay();
-}
+const deleteTodo = (id) => todos.filter((todo) => todo.id !== id);
 
 //TODO: Crear botones para eliminar tareas de la lista y marcar cuando estan hechas.

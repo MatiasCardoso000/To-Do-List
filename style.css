@@ -42,7 +42,7 @@ input[type="text"]:focus {
 
 .add-btn {
   width: 200px;
-  background-color: rgb(31, 224, 60);
+  background-color: rgb(182, 240, 56);
   border: none;
   border-radius: 18px;
   margin-top: 20px;
@@ -52,7 +52,7 @@ input[type="text"]:focus {
 }
 
 .add-btn:hover {
-  background-color: rgb(22, 180, 63);
+  background-color: rgb(198, 242, 103);
 }
 
 h3 {
@@ -80,16 +80,34 @@ h3 {
   position: relative;
 }
 
+input[type="checkbox"] {
+  display: block;
+}
+
+.check-todo {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 70px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: white;
+}
+
+input[type="checkbox"]:checked ~ .check-todo::before {
+  background-color: red;
+}
+
 .delete-btn {
   border-radius: 20px;
   width: 40px;
   height: 40px;
   background-color: rgb(255, 144, 144);
   position: absolute;
-  right: 60px;
+  right: 20px;
   cursor: pointer;
   border: none;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.455);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.455);
   transition: box-shadow;
 }
 
