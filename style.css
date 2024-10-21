@@ -7,7 +7,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
-  background-color: rgb(250, 229, 203);
+  background-color: rgb(21, 20, 20);
 }
 
 .container {
@@ -28,6 +28,10 @@ button {
   height: 36px;
 }
 
+.input-border-container {
+  position: relative;
+}
+
 input[type="text"] {
   width: 340px;
   border: 1px solid rgb(224, 228, 229);
@@ -40,19 +44,47 @@ input[type="text"]:focus {
   outline: none;
 }
 
+.animated-border::after,
+.animated-border::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-image: conic-gradient(
+    rgb(129, 32, 240),
+    rgb(142, 54, 243),
+    rgb(152, 79, 236),
+    rgb(177, 120, 241),
+    rgb(129, 32, 240)
+  );
+
+  padding: 3px;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.animated-border::before {
+  filter: blur(1.5rem);
+  opacity: 0.6;
+}
+
 .add-btn {
   width: 200px;
-  background-color: rgb(182, 240, 56);
+  background-color: rgb(129, 32, 240);
+  color: white;
   border: none;
   border-radius: 18px;
-  margin-top: 20px;
+  margin-top: 28px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.15s;
 }
 
 .add-btn:hover {
-  background-color: rgb(198, 242, 103);
+  background-color: rgb(144, 53, 248);
 }
 
 h3 {
@@ -86,9 +118,9 @@ input[type="checkbox"] {
 
 .checkbox-container div {
   cursor: pointer;
-  position: relative;
 }
 
+/* Estilizar el label que se verá como el checkbox */
 .todo-item .checkbox-container div {
   content: "";
   position: absolute;
