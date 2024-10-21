@@ -16,13 +16,13 @@ form.addEventListener("submit", (e) => {
 input.addEventListener("input", ({ target }) => (todo = target.value));
 
 const showTodoOnDisplay = () => {
-  const { div, deleteBtn, checkTodo, img, todoItem, label } = createElements();
+  const { div, deleteBtn, inputCheckBox, img, todoItem, label, checkDiv } =
+    createElements();
   todos.forEach((todo) => {
     todoItem.textContent = `${
       todo.title.slice(0, 1).toUpperCase() + todo.title.slice(1)
     }`;
-    label.appendChild(checkTodo);
-    div.append(todoItem, label, deleteBtn);
+    div.append(todoItem, inputCheckBox, label, deleteBtn);
     img.setAttribute("src", "./icon/compartimiento.png");
     deleteBtn.append(img);
     deleteBtn.addEventListener("click", deleteTodo(todo.id));
@@ -34,27 +34,31 @@ const createElements = () => {
   const div = document.createElement("div");
   const deleteBtn = document.createElement("button");
   const label = document.createElement("label");
-  const checkTodo = document.createElement("input");
+  const inputCheckBox = document.createElement("input");
+  const checkDiv = document.createElement("div");
   const img = document.createElement("img");
   const todoItem = document.createElement("p");
-  label.className = "check-todo";
+  label.appendChild(checkDiv);
+  label.className = "checkbox-container";
+  label.htmlFor = "check-todo";
+  inputCheckBox.id = "check-todo";
   deleteBtn.className = "delete-btn";
   todoItem.className = "todo";
   div.className = "todo-item";
-  checkTodo.type = "checkbox";
+  inputCheckBox.type = "checkbox";
 
   return {
     div,
     deleteBtn,
-    checkTodo,
     img,
     todoItem,
     label,
+    inputCheckBox,
   };
 };
 
 const checkIfInputIsEmpty = () => {
-  if (input.validity.valueMissing) {
+  if (input.validity.valueMissing || todo.trim() === "") {
     input.setCustomValidity("Tiene que ingresar un todo");
     todos = [];
   } else {
@@ -65,5 +69,3 @@ const checkIfInputIsEmpty = () => {
 };
 
 const deleteTodo = (id) => todos.filter((todo) => todo.id !== id);
-
-//TODO: Crear botones para eliminar tareas de la lista y marcar cuando estan hechas.

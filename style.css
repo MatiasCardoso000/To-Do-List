@@ -81,32 +81,54 @@ h3 {
 }
 
 input[type="checkbox"] {
-  display: block;
+  display: none;
 }
 
-.check-todo {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: 70px;
+.checkbox-container div {
   cursor: pointer;
-  font-size: 16px;
+  position: relative;
+}
+
+.todo-item .checkbox-container div {
+  content: "";
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
   background-color: white;
 }
 
-input[type="checkbox"]:checked ~ .check-todo::before {
-  background-color: red;
+/*Agrega el símbol de check */
+.todo-item .checkbox-container div::after {
+  content: "";
+  position: absolute;
+  left: 32%;
+  top: 45%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 12px;
+  border-right: 5px solid rgb(71, 222, 16);
+  border-bottom: 5px solid rgb(71, 222, 16);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/*Muestra el check al hacer click */
+.todo-item input[type="checkbox"]:checked ~ .checkbox-container div::after {
+  opacity: 1;
 }
 
 .delete-btn {
-  border-radius: 20px;
-  width: 40px;
-  height: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
   background-color: rgb(255, 144, 144);
   position: absolute;
   right: 20px;
   cursor: pointer;
-  border: none;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.455);
   transition: box-shadow;
 }
