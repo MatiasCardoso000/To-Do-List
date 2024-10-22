@@ -8,6 +8,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
   background-color: rgb(21, 20, 20);
+  color: white;
 }
 
 .container {
@@ -15,6 +16,10 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+}
+
+h1 {
+  margin-bottom: 6px;
 }
 
 .add-todo-form {
@@ -54,11 +59,11 @@ input[type="text"]:focus {
   left: 50%;
   translate: -50% -50%;
   background-image: conic-gradient(
-    rgb(129, 32, 240),
-    rgb(142, 54, 243),
-    rgb(152, 79, 236),
-    rgb(177, 120, 241),
-    rgb(129, 32, 240)
+    rgb(33, 221, 234),
+    rgb(2, 162, 174),
+    rgb(59, 230, 242),
+    rgb(127, 226, 234),
+    rgb(33, 221, 234)
   );
 
   padding: 3px;
@@ -73,7 +78,7 @@ input[type="text"]:focus {
 
 .add-btn {
   width: 200px;
-  background-color: rgb(129, 32, 240);
+  background-color: rgb(7, 207, 222);
   color: white;
   border: none;
   border-radius: 18px;
@@ -84,83 +89,62 @@ input[type="text"]:focus {
 }
 
 .add-btn:hover {
-  background-color: rgb(144, 53, 248);
+  background-color: rgb(45, 215, 227);
 }
 
-h3 {
-  margin-top: 55px;
-  font-size: 24px;
-}
-
-.todos-container {
-  text-align: center;
+.todo-list {
   margin-top: 20px;
   padding: 12px;
   font-size: 22px;
   height: 540px;
   width: 400px;
   box-shadow: 1px 1px 10px rgba(146, 135, 135, 0.7);
-  background-color: rgb(215, 236, 254);
+  background-color: rgb(#090f0a);
+  border: 2px solid rgb(45, 215, 227);
+  border-radius: 2px;
 }
 
-.todo-item {
-  margin-top: 8px;
-  height: 40px;
+.todo {
+  list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
+  height: 40px;
+  color: #fff;
+  background-color: rgb(26, 26, 49);
+  border-radius: 20px;
+  border-top: 2px solid rgb(45, 215, 227);
+  border-bottom: 2px solid rgb(45, 215, 227);
+  margin-top: 6px;
 }
 
 input[type="checkbox"] {
   display: none;
 }
 
+.check-todo {
+  height: 40px;
+  width: 40px;
+  border: 2px solid rgb(7, 207, 222);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.todo-text {
+  text-align: center;
+}
+
 .checkbox-container div {
   cursor: pointer;
 }
 
-/* Estilizar el label que se verá como el checkbox */
-.todo-item .checkbox-container div {
-  content: "";
-  position: absolute;
-  right: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: white;
-}
-
-/*Agrega el símbol de check */
-.todo-item .checkbox-container div::after {
-  content: "";
-  position: absolute;
-  left: 32%;
-  top: 45%;
-  transform: translateY(-50%) rotate(45deg);
-  width: 6px;
-  height: 12px;
-  border-right: 5px solid rgb(71, 222, 16);
-  border-bottom: 5px solid rgb(71, 222, 16);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/*Muestra el check al hacer click */
-.todo-item input[type="checkbox"]:checked ~ .checkbox-container div::after {
-  opacity: 1;
-}
-
 .delete-btn {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: rgb(255, 144, 144);
-  position: absolute;
-  right: 18px;
+  background-color: rgb(7, 207, 222);
   cursor: pointer;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.455);
   transition: box-shadow;
