@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 6px;
+  margin-bottom: 22px;
 }
 
 .add-todo-form {
@@ -59,11 +59,11 @@ input[type="text"]:focus {
   left: 50%;
   translate: -50% -50%;
   background-image: conic-gradient(
-    rgb(33, 221, 234),
-    rgb(2, 162, 174),
-    rgb(59, 230, 242),
-    rgb(127, 226, 234),
-    rgb(33, 221, 234)
+    rgb(59, 233, 6),
+    rgb(46, 178, 6),
+    rgb(107, 235, 68),
+    rgb(129, 222, 100),
+    rgb(59, 233, 6)
   );
 
   padding: 3px;
@@ -73,12 +73,12 @@ input[type="text"]:focus {
 
 .animated-border::before {
   filter: blur(1.5rem);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .add-btn {
   width: 200px;
-  background-color: rgb(7, 207, 222);
+  background-color: rgb(59, 233, 6);
   color: white;
   border: none;
   border-radius: 18px;
@@ -89,7 +89,7 @@ input[type="text"]:focus {
 }
 
 .add-btn:hover {
-  background-color: rgb(45, 215, 227);
+  background-color: rgb(107, 235, 68);
 }
 
 .todo-list {
@@ -100,22 +100,22 @@ input[type="text"]:focus {
   width: 400px;
   box-shadow: 1px 1px 10px rgba(146, 135, 135, 0.7);
   background-color: rgb(#090f0a);
-  border: 2px solid rgb(45, 215, 227);
+  border: 2px solid rgb(59, 233, 6);
   border-radius: 2px;
 }
 
 .todo {
-  list-style: none;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   align-items: center;
   height: 40px;
   color: #fff;
-  background-color: rgb(26, 26, 49);
+  background-color: rgb(18, 18, 32);
   border-radius: 20px;
-  border-top: 2px solid rgb(45, 215, 227);
-  border-bottom: 2px solid rgb(45, 215, 227);
+  border-top: 2px solid rgb(59, 233, 6);
+  border-bottom: 2px solid rgb(59, 233, 6);
   margin-top: 6px;
+  opacity: 0;
 }
 
 input[type="checkbox"] {
@@ -125,14 +125,23 @@ input[type="checkbox"] {
 .check-todo {
   height: 40px;
   width: 40px;
-  border: 2px solid rgb(7, 207, 222);
+  border: 2px solid rgb(59, 233, 6);
   border-radius: 20px;
   display: grid;
   place-items: center;
+  cursor: pointer;
+}
+
+.check-todo svg {
+  fill: rgb(59, 233, 6);
 }
 
 .todo-text {
-  text-align: center;
+  text-align: left;
+  flex-grow: 1;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 16px;
 }
 
 .checkbox-container div {
@@ -144,15 +153,14 @@ input[type="checkbox"] {
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: rgb(7, 207, 222);
+  background-color: rgb(59, 233, 6);
   cursor: pointer;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.455);
   transition: box-shadow;
 }
 
-.delete-btn img {
-  width: 20px;
-  height: 20px;
+.delete-btn svg {
+  fill: #000;
 }
 
 .delete-btn:active {

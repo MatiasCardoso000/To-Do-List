@@ -1,10 +1,14 @@
-const todosDisplay = document.querySelector(".todos-container");
 const input = document.getElementById("add-todo");
 const form = document.querySelector(".add-todo-form");
-const todoItem = document.querySelector("todo");
+const todo_list = document.querySelector(".todo-list");
+const todo_item = document.querySelector(".todo");
+const check_todo = document.querySelector(".check-todo");
+const todo_text = document.querySelector(".todo-text");
+const delete_button = document.querySelector(".delete-btn");
 
 let todo = "";
 let todos = [];
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (todos.length === 11) return;
@@ -17,45 +21,16 @@ form.addEventListener("submit", (e) => {
 input.addEventListener("input", ({ target }) => (todo = target.value));
 
 const showTodoOnDisplay = () => {
-  todos.forEach((todo) => {
-    todoItem.textContent = `${
+  todos.forEach((todo, i) => {
+    todo_text.textContent = `${
       todo.title.slice(0, 1).toUpperCase() + todo.title.slice(1)
     }`;
-    img.setAttribute("src", "./icon/compartimiento.png");
+    todo_item.style.opacity = 1;
+    delete_button.addEventListener("click", () => deleteTodo(todo.id));
 
-    div.append(todoItem);
-
-    todosDisplay.append(div);
+    todo_item.append(check_todo, todo_text, delete_button);
   });
 };
-
-// const createElements = () => {
-//   const div = document.createElement("div");
-//   const deleteBtn = document.createElement("button");
-//   const label = document.createElement("label");
-//   const inputCheckBox = document.createElement("input");
-//   const checkDiv = document.createElement("div");
-//   const img = document.createElement("img");
-//   const todoItem = document.createElement("p");
-
-//   label.className = "checkbox-container";
-//   label.htmlFor = "check-todo";
-//   inputCheckBox.id = "check-todo";
-//   deleteBtn.className = "delete-btn";
-//   todoItem.className = "todo";
-//   div.className = "todo-item";
-//   inputCheckBox.type = "checkbox";
-
-//   return {
-//     div,
-//     deleteBtn,
-//     img,
-//     todoItem,
-//     label,
-//     inputCheckBox,
-//     checkDiv,
-//   };
-// };
 
 const checkIfInputIsEmpty = () => {
   if (input.validity.valueMissing || todo.trim() === "") {
@@ -66,6 +41,9 @@ const checkIfInputIsEmpty = () => {
   }
   input.reportValidity();
   input.value = "";
+  todo = "";
 };
 
-const deleteTodo = (id) => todos.filter((todo) => todo.id !== id);
+function deleteTodo(id) {
+  return todos.filter((todo) => todo.id !== id);
+}
