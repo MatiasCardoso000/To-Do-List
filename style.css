@@ -92,16 +92,45 @@ input[type="text"]:focus {
   background-color: rgb(107, 235, 68);
 }
 
-.todo-list {
+.todo-list-container {
+  position: relative;
   margin-top: 20px;
-  padding: 12px;
-  font-size: 22px;
+  background: rgb(14, 12, 13);
   height: 540px;
   width: 400px;
-  box-shadow: 1px 1px 10px rgba(146, 135, 135, 0.7);
-  background-color: rgb(#090f0a);
-  border: 2px solid rgb(59, 233, 6);
-  border-radius: 2px;
+  border-radius: 10px;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.custom-animated-border::after,
+.custom-animated-border::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    rgb(107, 235, 68)
+  );
+  padding: 3px;
+  z-index: -1;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.todo-list {
+  padding: 12px;
+  font-size: 22px;
+  border-radius: 10px;
 }
 
 .todo {
@@ -165,4 +194,13 @@ input[type="checkbox"] {
 
 .delete-btn:active {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
