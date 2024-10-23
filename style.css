@@ -144,7 +144,6 @@ input[type="text"]:focus {
   border-top: 2px solid rgb(59, 233, 6);
   border-bottom: 2px solid rgb(59, 233, 6);
   margin-top: 6px;
-  opacity: 0;
 }
 
 input[type="checkbox"] {
@@ -161,16 +160,20 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.check-todo svg {
+/* #todo-check:checked ~ .check-todo svg {
   fill: rgb(59, 233, 6);
 }
+
+#todo-check:checked ~ .todo-text {
+  text-decoration: line-through;
+} */
 
 .todo-text {
   text-align: left;
   flex-grow: 1;
   cursor: pointer;
   margin-left: 8px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .checkbox-container div {
