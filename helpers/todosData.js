@@ -20,6 +20,6 @@ export const getTodos = () => {
 
 export const deleteTodo = (id) => {
   todos = todos.filter((todo) => todo.id !== id);
-
+  localStorage.setItem("todos", JSON.stringify(todos));
   showTodoOnDisplay();
 };
