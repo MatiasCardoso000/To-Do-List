@@ -1,5 +1,8 @@
 import { checkIfInputIsEmpty } from "./checkIfInputIsEmpty.js";
-import { showTodoOnDisplay } from "./showTodoOnDisplay.js";
+import {
+  savedLocalStoreTodos,
+  showTodoOnDisplay,
+} from "./showTodoOnDisplay.js";
 import { todos } from "./todosData.js";
 
 const form = document.querySelector(".add-todo-form");
@@ -11,8 +14,8 @@ export const submitForm = () => {
     e.preventDefault();
     if (todos.length === 11) return;
     if (todos.some((t) => t.title === todo)) return;
-
     checkIfInputIsEmpty();
+    savedLocalStoreTodos();
     showTodoOnDisplay();
   });
 };

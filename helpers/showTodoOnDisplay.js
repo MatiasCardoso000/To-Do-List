@@ -3,10 +3,14 @@ import { deleteTodo, todos } from "./todosData.js";
 
 const todo_list = document.querySelector(".todo-list");
 
+export const savedLocalStoreTodos = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
 export const showTodoOnDisplay = () => {
   todo_list.innerHTML = "";
 
-  todos.forEach((todo, i) => {
+  todos.forEach((todo) => {
     const {
       todo_item,
       check_input,
