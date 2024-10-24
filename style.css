@@ -124,7 +124,7 @@ input[type="text"]:focus {
   padding: 3px;
   z-index: -1;
   border-radius: 10px;
-  animation: 3s spin linear infinite;
+  animation: 10s spin linear infinite;
 }
 
 .todo-list {
@@ -159,7 +159,6 @@ input[type="checkbox"] {
   place-items: center;
   cursor: pointer;
 }
-
 
 .todo-text {
   text-align: left;

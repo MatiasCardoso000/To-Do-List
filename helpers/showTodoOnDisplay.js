@@ -13,7 +13,7 @@ export const showTodoOnDisplay = () => {
       check_label,
       todo_text_label,
       delete_button,
-    } = createElements(todo);
+    } = createElements(todo.id);
 
     delete_button.addEventListener("click", () => deleteTodo(todo.id));
 

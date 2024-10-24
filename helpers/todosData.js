@@ -3,7 +3,7 @@ import { showTodoOnDisplay } from "./showTodoOnDisplay.js";
 export let todos = [];
 
 export const addTodo = (todo) => {
-  todos.push({ id: Date.now(), title: todo });
+  todos.push({ id: Date.now() * 3, title: todo });
 };
 
 export const getTodos = () => {
